@@ -1,19 +1,21 @@
 header {
     min-height: 60px;
-
-    .logo-link {
-        float: left;
-    }
-
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
     .branding {
-        display: inline-block;
-        margin: 10px 0 0 0;
-        position: relative;
+        margin: 0;
+        vertical-align: text-bottom;
+        a {
+            font: 2rem 'Oswald-Regular',
+            'Helvetica Neue',
+            Arial,
+            sans-serif;
+        }
     }
 
     .nav {
-        float: right;
-        left: 80px;
     }
 
     .logo-image {

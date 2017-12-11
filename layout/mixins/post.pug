@@ -1,10 +1,13 @@
 mixin postInfo(item)
     .post-info
-        a
-        != full_date(item.date, config.date_format)
+        != full_date(item.date, 'MM/DD')
         if item.from && (is_home() || is_post())
             a.post-from(href=item.from, target='_blank', title=item.from)
                 != __('translate_original')
+
+        //- - item.tags.forEach(tag=> {
+        //-      span= '# ' + tag.name
+        //- - })
 
 mixin postTitle(title)
     if title
@@ -31,19 +34,44 @@ mixin posts()
 //- Archive Page
 mixin postList()
     .archive
+        - var isFirstSectionUsed = false
         - var year = 0;
         - var change = false;
-        - page.posts.each(function (item) {
-            - var itemYear = date(item.date, 'YYYY') - 0;
-            - change = year !== itemYear;
-            - year = change ? itemYear : year;
+        - site.posts.each(function (item, index) {
+            - var itemYear = date(item.date, 'YYYY') - 0
+            - change = year !== itemYear
+            - year = itemYear
             if change
+                if (!isFirstSectionUsed) 
+                    - isFirstSectionUsed = true
+                else
+                    | </section>
+                | <section class="year-section">
+
                 h2.archive-year
-                    != year
-            .post-item
+                    != itemYear
+            - var tagArray = (item.tags.map(function(tag){return tag.name}))
+            - var currTagList = tagArray.join('%+%');
+            div(class='post-item', data-tags = currTagList)
                 +postInfo(item)
                 a.post-title-link(href=url_for(item.path))
                     +postTitle(item.title)
+            
+            if (index === site.posts.length - 1)
+                | </section>
+        - })
+
+mixin tagList()
+    .tags
+        div.tag(data-tag = '')
+            | ALL POSTS
+            span.tagCount.
+                !{site.posts.length}
+        - site.tags.each(tag=>{
+            div.tag(data-tag = tag.name)
+                =tag.name
+                span.tagCount
+                    =tag.posts.length
         - })
 
 //- Post Page

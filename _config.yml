@@ -1,14 +1,14 @@
-name: Artemis
-url: https://github.com/Dreyer/hexo-theme-artemis
+name: Ares
+url: https://github.com/fi3ework/hexo-theme-archer
 
 menu:
   Home: /
   Archives: /archives
-  GitHub: https://github.com/Dreyer
+  About: /about
   RSS: /atom.xml
 
-favicon: /favicon.png
-logo: /logo.png
+favicon: /favicon.ico
+logo:
 
 # Comment
 # e.g disqus: seansun
@@ -17,6 +17,9 @@ disqus:
 # Analytics
 mathjax: false
 google_analytics:
+
+comment:
+  livere_uid: MTAyMC8yODQyOS81MDAw
 
 # Copyright Infomation
 copyright:

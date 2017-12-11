@@ -22,3 +22,7 @@ if theme.google_analytics
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+
+if is_archive()
+    script(src="/scripts/tag.js")
+
