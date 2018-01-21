@@ -1,3 +1,4 @@
+
 ::selection {
     color: #FFFFFF;
     background-color: #42b983;
@@ -15,7 +16,7 @@ body {
     font-size: 15px;
     line-height: 1.6;
     background-color: #fff;
-    font-family: 'sourcesanspro', 'Helvetica Neue', Arial, sans-serif;
+    font-family: $base-font-family;
 }
 
 ul.nav,
@@ -45,7 +46,7 @@ a.post-title-link {
         z-index: -1;
         left: 0;
         right: 0;
-        bottom: 0;
+        bottom: -1px;
         background: #42b983;
         height: 2px;
         transition: all 0.15s ease-in-out;

@@ -1,7 +1,8 @@
 .paginator {
     margin: 4em 0;
     text-align: center;
-    .prev, .next {
+    .prev,
+    .next {
         display: inline-block;
         margin: 0 4px;
         padding: 4px 12px;
@@ -10,7 +11,9 @@
         font-size: 14px;
         color: #fff;
         background-color: #4fc08d;
+        transition: all 0.4s cubic-bezier(.47, 2.02, .31, -0.36) 0s;
         &:hover {
+            transform: scale(1.1);
             background-color: #22bd77;
         }
     }

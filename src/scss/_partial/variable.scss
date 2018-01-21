@@ -1,0 +1,37 @@
+$base-font-family: -apple-system,
+BlinkMacSystemFont,
+"Helvetica Neue",
+Arial,
+"PingFang SC",
+"Hiragino Sans GB",
+STHeiti,
+"Microsoft YaHei",
+"Microsoft JhengHei",
+"Source Han Sans SC",
+"Noto Sans CJK SC",
+"Source Han Sans CN",
+"Noto Sans SC",
+"Source Han Sans TC",
+"Noto Sans CJK TC",
+"WenQuanYi Micro Hei",
+SimSun,
+sans-serif;
+
+$feature-font-family: 'Oswald-Regular',
+$base-font-family;
+
+@font-face {
+  font-family: 'iconfont-ares';
+  /* project id 549264 */
+  src: url('//at.alicdn.com/t/font_549264_mpsfk79frcmwvcxr.eot');
+  src: url('//at.alicdn.com/t/font_549264_mpsfk79frcmwvcxr.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_549264_mpsfk79frcmwvcxr.woff') format('woff'), url('//at.alicdn.com/t/font_549264_mpsfk79frcmwvcxr.ttf') format('truetype'), url('//at.alicdn.com/t/font_549264_mpsfk79frcmwvcxr.svg#iconfont-ares') format('svg');
+}
+
+.iconfont-ares {
+  font-family: "iconfont-ares" !important;
+  font-size: 1rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+

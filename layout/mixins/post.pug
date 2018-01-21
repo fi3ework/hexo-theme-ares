@@ -1,6 +1,6 @@
 mixin postInfo(item)
     .post-info
-        != full_date(item.date, 'MM/DD')
+        != full_date(item.date, 'YYYY/MM/DD')
         if item.from && (is_home() || is_post())
             a.post-from(href=item.from, target='_blank', title=item.from)
                 != __('translate_original')
@@ -51,8 +51,10 @@ mixin postList()
                 h2.archive-year
                     != itemYear
             - var tagArray = (item.tags.map(function(tag){return tag.name}))
-            - var currTagList = tagArray.join('%+%');
-            div(class='post-item', data-tags = currTagList)
+            - var categoryArray = (item.categories.map(function(tag){return tag.name}))
+            - var tagStr = tagArray.length ? tagArray.join('%+%') : ''
+            - var categoryStr = categoryArray.length ? categoryArray.join('%+%') : ''
+            div(class='post-item', data-tag = tagStr, data-category = categoryStr)
                 +postInfo(item)
                 a.post-title-link(href=url_for(item.path))
                     +postTitle(item.title)
@@ -61,18 +63,34 @@ mixin postList()
                 | </section>
         - })
 
+mixin categoryList()
+    .categories
+        div.category.tag-all(data-category = '')
+            span.iconfont-ares.all-icon
+                |&#xe663;
+            //- | ALL POSTS
+            span.allTagCount.
+                !{site.posts.length}
+        - site.categories.each(category=>{
+            div.category(data-category = category.name)
+                span.iconfont-ares.category-icon
+                    |&#xe72c;
+                =category.name
+                span.tagCount
+                    =category.posts.length
+        - })
+
 mixin tagList()
     .tags
-        div.tag(data-tag = '')
-            | ALL POSTS
-            span.tagCount.
-                !{site.posts.length}
         - site.tags.each(tag=>{
             div.tag(data-tag = tag.name)
+                span.iconfont-ares.tag-icon
+                    |&#xe63e;
                 =tag.name
                 span.tagCount
                     =tag.posts.length
         - })
+
 
 //- Post Page
 mixin post(item)
